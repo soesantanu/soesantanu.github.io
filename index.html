@@ -1,1950 +1,1137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. Elena Rossi | Mathematics PhD</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --primary: #2c3e50;
-  --secondary: #3498db;
-  --accent: #e74c3c;
-  --light: #f8f9fa;
-  --dark: #212529;
-  --gray: #6c757d;
-  --light-gray: #e9ecef;
-  --gold: #f1c40f;
-  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Raleway', sans-serif;
-  line-height: 1.8;
-  color: var(--dark);
-  background-color: var(--light);
-  overflow-x: hidden;
-  background-image:
-    radial-gradient(circle at 5% 15%, rgba(231, 76, 60, 0.02) 0%, transparent 15%),
-    radial-gradient(circle at 95% 85%, rgba(52, 152, 219, 0.02) 0%, transparent 15%);
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section-padding {
-  padding: 100px 0;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 70px;
-  position: relative;
-}
-
-.section-header h2 {
-  font-size: 2.8rem;
-  display: inline-block;
-  position: relative;
-  padding-bottom: 15px;
-}
-
-.section-header h2::after {
-  content: "";
-  position: absolute;
-  width: 80px;
-  height: 4px;
-  background: var(--accent);
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-.section-header p {
-  max-width: 700px;
-  margin: 20px auto 0;
-  color: var(--gray);
-  font-size: 1.1rem;
-}
-
-/* Header Styles */
-header {
-  background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
-  color: white;
-  padding: 30px 0;
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-
-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(231, 76, 60, 0.1) 0%, transparent 20%);
-  pointer-events: none;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-.profile-image {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: 5px solid rgba(255, 255, 255, 0.2);
-  margin-right: 60px;
-  background: linear-gradient(45deg, #3498db, #2c3e50);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  position: relative;
-  transition: var(--transition);
-  animation: float 6s ease-in-out infinite;
-}
-
-.profile-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.profile-image:hover img {
-  transform: scale(1.05);
-}
-
-.header-text {
-  flex: 1;
-}
-
-.header-text h1 {
-  font-size: 3.5rem;
-  margin-bottom: 15px;
-  color: white;
-  line-height: 1.2;
-}
-
-.header-text h2 {
-  font-size: 1.8rem;
-  font-weight: 300;
-  margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.9);
-  position: relative;
-  display: inline-block;
-}
-
-.header-text h2::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.3);
-  bottom: -10px;
-  left: 0;
-}
-
-.affiliation {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-}
-
-.affiliation i {
-  margin-right: 15px;
-  color: var(--gold);
-}
-
-.about-text {
-  max-width: 700px;
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-.contact-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 12px 25px;
-  border-radius: 50px;
-  transition: var(--transition);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.contact-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-5px);
-}
-
-.contact-item i {
-  margin-right: 12px;
-  color: var(--gold);
-  font-size: 1.2rem;
-}
-
-/* Navigation */
-nav {
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-}
-
-.logo span {
-  color: var(--accent);
-}
-
-.logo i {
-  margin-right: 10px;
-  color: var(--secondary);
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-}
-
-.nav-links li {
-  margin: 0 15px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--dark);
-  font-weight: 600;
-  position: relative;
-  transition: var(--transition);
-  font-size: 1.1rem;
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.nav-links a i {
-  margin-right: 8px;
-  font-size: 0.9rem;
-}
-
-.nav-links a:hover {
-  color: var(--accent);
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: var(--transition);
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* Mobile menu button */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1001;
-}
-
-.menu-toggle span {
-  width: 30px;
-  height: 3px;
-  background: var(--primary);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* About Section */
-#about {
-  background-color: white;
-}
-
-.about-content {
-  display: flex;
-  gap: 50px;
-  align-items: flex-start;
-}
-
-.about-text {
-  flex: 3;
-}
-
-.about-text p {
-  margin-bottom: 25px;
-  font-size: 1.1rem;
-  line-height: 1.9;
-}
-
-.highlight {
-  background: linear-gradient(120deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0) 100%);
-  padding: 30px;
-  border-radius: 10px;
-  border-left: 4px solid var(--accent);
-  margin: 30px 0;
-}
-
-.research-interests {
-  flex: 2;
-  background: var(--light);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 100px;
-}
-
-.research-interests h3 {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-  color: var(--primary);
-  text-align: center;
-  position: relative;
-  padding-bottom: 15px;
-}
-
-.research-interests h3::after {
-  content: "";
-  position: absolute;
-  width: 60px;
-  height: 3px;
-  background: var(--secondary);
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-.interests-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-}
-
-.interest-item {
-  background: white;
-  padding: 25px 15px;
-  border-radius: 10px;
-  text-align: center;
-  transition: var(--transition);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(52, 152, 219, 0.1);
-}
-
-.interest-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  border-color: rgba(52, 152, 219, 0.2);
-}
-
-.interest-item i {
-  font-size: 2.5rem;
-  color: var(--secondary);
-  margin-bottom: 15px;
-  background: rgba(52, 152, 219, 0.1);
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
-  border-radius: 50%;
-  text-align: center;
-  margin: 0 auto 20px;
-}
-
-.interest-item h4 {
-  font-size: 1.1rem;
-  margin-top: 10px;
-}
-
-/* Publications Section */
-#publications {
-  background-color: var(--light);
-}
-
-.pub-list {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.pub-item {
-  background: white;
-  padding: 30px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  border-left: 4px solid var(--secondary);
-  position: relative;
-  overflow: hidden;
-}
-
-.pub-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.pub-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(52, 152, 219, 0.03) 0%, rgba(52, 152, 219, 0) 100%);
-  pointer-events: none;
-}
-
-.pub-title {
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: var(--primary);
-}
-
-.pub-authors {
-  font-style: italic;
-  margin-bottom: 15px;
-  color: var(--gray);
-  font-size: 1.1rem;
-}
-
-.pub-abstract {
-  margin-bottom: 20px;
-  line-height: 1.7;
-}
-
-.pub-details {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  font-size: 1rem;
-  color: var(--gray);
-}
-
-.pub-links a {
-  display: inline-block;
-  margin-left: 15px;
-  color: var(--secondary);
-  text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
-}
-
-.pub-links a:hover {
-  color: var(--accent);
-}
-
-/* Education Section */
-#education {
-  background-color: white;
-}
-
-.education-timeline {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.education-timeline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 4px;
-  background: var(--secondary);
-  margin-left: -2px;
-  border-radius: 2px;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 50px;
-  width: 50%;
-}
-
-.timeline-item:nth-child(odd) {
-  left: 0;
-  padding-right: 70px;
-  text-align: right;
-}
-
-.timeline-item:nth-child(even) {
-  left: 50%;
-  padding-left: 70px;
-}
-
-.timeline-item::after {
-  content: "";
-  position: absolute;
-  top: 20px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 5px solid white;
-  box-shadow: 0 0 0 3px var(--accent);
-}
-
-.timeline-item:nth-child(odd)::after {
-  right: -12px;
-}
-
-.timeline-item:nth-child(even)::after {
-  left: -12px;
-}
-
-.timeline-content {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-}
-
-.timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.degree {
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-}
-
-.institution {
-  font-weight: 600;
-  color: var(--secondary);
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-.date {
-  font-style: italic;
-  color: var(--gray);
-  margin-bottom: 20px;
-  display: block;
-  font-size: 1.1rem;
-}
-
-/* Teaching Section */
-#teaching {
-  background-color: white;
-}
-
-.teaching-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-
-.teaching-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.teaching-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-  background: var(--primary);
-  color: white;
-  padding: 25px;
-}
-
-.card-header h3 {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-}
-
-.card-header .date {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 0;
-}
-
-.card-body {
-  padding: 30px;
-  flex: 1;
-}
-
-.course-item {
-  margin-bottom: 25px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid var(--light-gray);
-}
-
-.course-item:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-.course-title {
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--primary);
-  font-size: 1.2rem;
-}
-
-.course-role {
-  color: var(--secondary);
-  font-weight: 600;
-  margin-bottom: 12px;
-  display: block;
-}
-
-/* Teaching Materials Section */
-#materials {
-  background-color: var(--light);
-}
-
-.materials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-
-.material-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.material-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.material-image {
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-
-.material-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition);
-}
-
-.material-card:hover .material-image img {
-  transform: scale(1.05);
-}
-
-.material-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: var(--accent);
-  color: white;
-  padding: 5px 15px;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.material-content {
-  padding: 30px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.material-title {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: var(--primary);
-}
-
-.material-meta {
-  color: var(--gray);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.material-meta i {
-  margin-right: 5px;
-  color: var(--secondary);
-}
-
-.material-links {
-  margin-top: auto;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.material-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 20px;
-  background: var(--light);
-  border-radius: 5px;
-  text-decoration: none;
-  color: var(--primary);
-  font-weight: 600;
-  transition: var(--transition);
-  border: 1px solid var(--light-gray);
-}
-
-.material-link:hover {
-  background: var(--secondary);
-  color: white;
-  border-color: var(--secondary);
-}
-
-.material-link i {
-  margin-right: 8px;
-}
-
-/* Research Projects */
-#projects {
-  background-color: white;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-
-.project-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.project-content {
-  padding: 30px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.project-title {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: var(--primary);
-}
-
-.project-meta {
-  color: var(--gray);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.project-meta span {
-  display: flex;
-  align-items: center;
-}
-
-.project-meta i {
-  margin-right: 8px;
-  color: var(--secondary);
-}
-
-/* Awards Section */
-#awards {
-  background-color: var(--light);
-}
-
-.awards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-
-.award-card {
-  background: white;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  border-left: 4px solid var(--gold);
-}
-
-.award-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.award-title {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-}
-
-.award-title i {
-  color: var(--gold);
-  margin-right: 15px;
-  font-size: 1.8rem;
-}
-
-/* Conferences Section */
-#conferences {
-  background-color: white;
-}
-
-.conference-list {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.conference-item {
-  background: white;
-  padding: 30px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  border-left: 4px solid var(--secondary);
-  position: relative;
-  overflow: hidden;
-}
-
-.conference-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.conference-title {
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: var(--primary);
-}
-
-.conference-meta {
-  color: var(--gray);
-  margin-bottom: 15px;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* Contact Section */
-#contact {
-  background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-#contact::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 80% 70%, rgba(231, 76, 60, 0.1) 0%, transparent 20%);
-  pointer-events: none;
-}
-
-#contact .section-header h2 {
-  color: white;
-}
-
-#contact .section-header h2::after {
-  background: var(--gold);
-}
-
-.contact-content {
-  display: flex;
-  gap: 50px;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.contact-form {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 40px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.contact-info-card {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 40px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 1.1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--gold);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.form-group textarea {
-  min-height: 180px;
-  resize: vertical;
-}
-
-.btn {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--primary);
-  padding: 15px 35px;
-  border: none;
-  border-radius: 50px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: var(--transition);
-  font-size: 1.1rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.btn:hover {
-  background: #e6b801;
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.contact-details {
-  margin-bottom: 40px;
-}
-
-.contact-detail {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 25px;
-}
-
-.contact-detail i {
-  font-size: 1.5rem;
-  margin-right: 15px;
-  color: var(--gold);
-  margin-top: 5px;
-}
-
-.contact-detail div {
-  flex: 1;
-}
-
-.contact-detail h4 {
-  font-size: 1.3rem;
-  margin-bottom: 5px;
-  color: white;
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  transition: var(--transition);
-  font-size: 1.3rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.social-link:hover {
-  background: var(--gold);
-  transform: translateY(-5px);
-  color: var(--primary);
-}
-
-/* Footer */
-footer {
-  background: var(--dark);
-  color: rgba(255, 255, 255, 0.7);
-  padding: 50px 0 20px;
-  text-align: center;
-  font-size: 1rem;
-}
-
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto 40px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 250px;
-  text-align: left;
-}
-
-.footer-section h3 {
-  color: white;
-  margin-bottom: 20px;
-  font-size: 1.4rem;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.footer-section h3::after {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 3px;
-  background: var(--accent);
-  bottom: 0;
-  left: 0;
-}
-
-.footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-}
-
-.footer-links a i {
-  margin-right: 10px;
-  width: 20px;
-}
-
-.footer-links a:hover {
-  color: var(--gold);
-  padding-left: 5px;
-}
-
-.copyright {
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Animations */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.floating {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Back to top button */
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background: var(--accent);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease;
-  z-index: 999;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.back-to-top.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.back-to-top:hover {
-  background: #c0392b;
-  transform: translateY(-3px);
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-  .header-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .profile-image {
-    margin: 0 auto 40px;
-  }
-
-  .contact-info {
-    justify-content: center;
-  }
-
-  .about-content {
-    flex-direction: column;
-  }
-
-  .contact-content {
-    flex-direction: column;
-  }
-
-  .research-interests {
-    position: static;
-  }
-
-  .header-text h2::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    transform: translateY(-100%);
-    transition: transform 0.5s ease;
-  }
-  
-  .nav-links.active {
-    transform: translateY(0);
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin: 20px 0;
-  }
-  
-  .menu-toggle {
-    display: flex;
-  }
-  
-  .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-  }
-}
-
-@media (max-width: 768px) {
-  .education-timeline::before {
-    left: 30px;
-  }
-
-  .timeline-item {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 0;
-    text-align: left;
-  }
-
-  .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even) {
-    left: 0;
-  }
-
-  .timeline-item::after {
-    left: 20px !important;
-  }
-
-  .header-text h1 {
-    font-size: 2.8rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .section-padding {
-    padding: 70px 0;
-  }
-
-  .section-header h2 {
-    font-size: 2.3rem;
-  }
-
-  .profile-image {
-    width: 220px;
-    height: 220px;
-  }
-
-  .pub-details {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .pub-links a {
-    margin-left: 0;
-    margin-right: 15px;
-  }
-
-  .material-links {
-    flex-direction: column;
-  }
-
-  .material-link {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .nav-links a i {
-    font-size: 1.2rem;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santanu Soe | Academic Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --gold: #f1c40f;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 5% 15%, rgba(231, 76, 60, 0.02) 0%, transparent 15%),
+                radial-gradient(circle at 95% 85%, rgba(52, 152, 219, 0.02) 0%, transparent 15%);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
+            color: white;
+            padding: 30px 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(231, 76, 60, 0.1) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: var(--transition);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            color: white;
+            line-height: 1.2;
+        }
+
+        .header-text h2 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            display: inline-block;
+        }
+
+        .header-text h2::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            margin-right: 12px;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .research-area {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            max-width: 800px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .research-area h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .research-tag {
+            background: rgba(52, 152, 219, 0.2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Education Section */
+        .education-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--secondary);
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 70px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 70px;
+        }
+
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 5px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .institution {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .date {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 10px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .grade {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 5px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Workshops Section */
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .workshop-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+            height: 100%;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .workshop-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .workshop-meta {
+            color: var(--gray);
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .workshop-meta span {
+            display: flex;
+            align-items: center;
+        }
+
+        .workshop-meta i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .award-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--gold);
+            height: 100%;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .award-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .award-title i {
+            color: var(--gold);
+            margin-right: 15px;
+            font-size: 1.8rem;
+        }
+
+        .award-date {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        /* Teaching Section */
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .teaching-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent);
+            height: 100%;
+        }
+
+        .teaching-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .course-meta {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Publications Section */
+        .pub-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pub-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pub-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .pub-title {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .pub-authors {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .pub-status {
+            display: inline-block;
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 50px 0 20px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .education-timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 20px !important;
+            }
+
+            .header-text h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 70px 0;
+            }
+
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .header-text h1 {
+                font-size: 2.3rem;
+            }
+
+            .contact-item {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- Header Section -->
-<header>
-<div class="container">
-<div class="header-content">
-<div class="profile-image floating">
-<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Dr. Elena Rossi">
-</div>
-<div class="header-text">
-<h1>Santanu Soe</h1>
-<h2>Mathematics | Research Fellow</h2>
-<div class="affiliation">
-<i class="fas fa-university"></i>
-<span>Department of Mathematics, Indian Institute of Technology Madras</span>
-</div>
-<div class="about-text">
-<p>I work in the field of optimization and variational analysis, with a focus on first-order algorithms for structured convex and monotone problems. My research interests include primal-dual methods, adaptive stepsize strategies, splitting algorithms, and applications in several other fields such as Machine learning, Statistics, etc. I am particularly interested in developing efficient algorithms that exploit problem structure and theoretical properties to ensure fast and reliable convergence.</p>
-</div>
-<div class="contact-info">
-<div class="contact-item">
-<i class="fas fa-envelope"></i>
-<span>ma22d002@smail.iitm.ac.in</span>
-</div>
-<div class="contact-item">
-<i class="fas fa-map-marker-alt"></i>
-<span>Chennai, India</span>
-</div>
-<div class="contact-item">
-<i class="fas fa-phone"></i>
-<span>+919382....05</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-image floating">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Santanu Soe">
+                </div>
+                <div class="header-text">
+                    <h1>SANTANU SOE</h1>
+                    <h2>Research Scholar | Mathematics</h2>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+919382328205</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>ma22d002@smail.iitm.ac.in</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>santanusoe1@gmail.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="research-area">
+                        <h3>Research Area</h3>
+                        <div class="research-tags">
+                            <div class="research-tag">Convex optimization</div>
+                            <div class="research-tag">Splitting algorithms</div>
+                            <div class="research-tag">Monotone Inclusion problems</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- Navigation -->
-<nav>
-<div class="container">
-<div class="nav-container">
-<div class="logo"><i class="fas fa-square-root-variable"></i> Math<span>Lab</span></div>
-<button class="menu-toggle" id="menu-toggle">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-<ul class="nav-links" id="nav-links">
-<li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-<li><a href="#publications"><i class="fas fa-book"></i> Publications</a></li>
-<li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-<li><a href="#teaching"><i class="fas fa-chalkboard-teacher"></i> Teaching</a></li>
-<li><a href="#materials"><i class="fas fa-file-alt"></i> Materials</a></li>
-<li><a href="#projects"><i class="fas fa-flask"></i> Projects</a></li>
-<li><a href="#awards"><i class="fas fa-trophy"></i> Awards</a></li>
-<li><a href="#conferences"><i class="fas fa-microphone"></i> Conferences</a></li>
-<li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-</ul>
-</div>
-</div>
-</nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo"><i class="fas fa-square-root-variable"></i> Santanu<span>Soe</span></div>
+                <ul class="nav-links">
+                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                    <li><a href="#publications"><i class="fas fa-book"></i> Publications</a></li>
+                    <li><a href="#workshops"><i class="fas fa-calendar-alt"></i> Workshops</a></li>
+                    <li><a href="#awards"><i class="fas fa-trophy"></i> Awards</a></li>
+                    <li><a href="#teaching"><i class="fas fa-chalkboard-teacher"></i> Teaching</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<!-- About Section -->
-<section id="about" class="section-padding">
-<div class="container">
-<div class="section-header">
-<h2>About Me</h2>
-<p>My academic journey and research focus areas in mathematics</p>
-</div>
-<div class="about-content">
-<div class="about-text">
-<p>I am a Research Fellow in the Department of Mathematics at Stanford University, where I investigate the intersection of geometric analysis and theoretical physics. My current research focuses on developing new analytical techniques for studying nonlinear wave equations on curved spacetimes.</p>
+    <!-- Education Section -->
+    <section id="education" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Education</h2>
+                <p>Academic qualifications and research experience</p>
+            </div>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="institution">Indian Institute of Technology Madras, Chennai</div>
+                        <div class="degree">Research Scholar</div>
+                        <span class="date">2022 - Onwards</span>
+                        <p>Coursework CGPA: <span class="grade">8.69/10</span></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="institution">Indian Institute of Technology Madras, Chennai</div>
+                        <div class="degree">M.Sc in Mathematics</div>
+                        <span class="date">2020 - 2022</span>
+                        <p>CGPA: <span class="grade">7.87/10</span></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="institution">Bankura Christian College, Bankura, West Bengal</div>
+                        <div class="degree">B.Sc in Mathematics</div>
+                        <span class="date">2017 - 2020</span>
+                        <p>CGPA: <span class="grade">9.18/10</span></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="institution">Ichapur N.C High School, Durgapur, West Bengal</div>
+                        <div class="degree">12th Standard</div>
+                        <span class="date">2015 - 2017</span>
+                        <p>Percentage: <span class="grade">84%</span></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="institution">Ichapur N.C High School, Durgapur, West Bengal</div>
+                        <div class="degree">10th Standard</div>
+                        <span class="date">2010 - 2015</span>
+                        <p>Percentage: <span class="grade">85.85%</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>My work has implications for our understanding of general relativity and quantum field theory, particularly in the context of black hole stability and gravitational wave propagation. I'm passionate about discovering deep connections between abstract mathematical theories and physical phenomena.</p>
+    <!-- Publications Section -->
+    <section id="publications" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Publications</h2>
+                <p>Research papers and preprints</p>
+            </div>
+            <div class="pub-list">
+                <div class="pub-item">
+                    <div class="pub-title">The Golden Ratio Primal-Dual Algorithm with Two New Stepsize Rules for Convex-Concave Saddle Point Problems</div>
+                    <div class="pub-authors">Soe, Santanu, Matthew K. Tam, and V. Vetrivel</div>
+                    <p>arXiv preprint arXiv:2502.17918 (2025)</p>
+                    <span class="pub-status">Under review</span>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-title">Weak Convergence of Projection Algorithm with Momentum Terms and New Step Size Rule for Quasimonotone Variational Inequalities</div>
+                    <div class="pub-authors">Soe, Santanu, G. Kumar and V. Vetrivel</div>
+                    <span class="pub-status">Under review</span>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-title">On Some Forward-Backward Method to solve Monotone Inclusion Problems</div>
+                    <div class="pub-authors">Soe, Santanu</div>
+                    <span class="pub-status">Under preparation</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="highlight">
-<p>My approach combines rigorous mathematical analysis with computational methods to solve complex problems that have remained open for decades. I believe that the most profound insights come from bridging different areas of mathematics.</p>
-</div>
+    <!-- Workshops Section -->
+    <section id="workshops" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Workshops & Seminars</h2>
+                <p>Academic conferences and training attended</p>
+            </div>
+            <div class="workshop-grid">
+                <div class="workshop-card">
+                    <h3 class="workshop-title">Mathematics in Industry Study Group (MISG 2025)</h3>
+                    <div class="workshop-meta">
+                        <span><i class="fas fa-calendar"></i> Feb 10 - 14, 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Monash University, Australia</span>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <h3 class="workshop-title">Workshop on Linear Algebra through Data Science</h3>
+                    <div class="workshop-meta">
+                        <span><i class="fas fa-calendar"></i> May 20 - 26, 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> IMSC, Chennai</span>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <h3 class="workshop-title">Mini-Course on Optimization Theory and Its Applications</h3>
+                    <div class="workshop-meta">
+                        <span><i class="fas fa-calendar"></i> March 18 - 21, 2024</span>
+                        <span><i class="fas fa-map-marker-alt"></i> VIASM, Vietnam (Online)</span>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <h3 class="workshop-title">Data Science: Probabilistic and Optimization Methods</h3>
+                    <div class="workshop-meta">
+                        <span><i class="fas fa-calendar"></i> July 3-7, 2023</span>
+                        <span><i class="fas fa-map-marker-alt"></i> ICTS Bangalore</span>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <h3 class="workshop-title">Analysis, Inverse Problems and Applications</h3>
+                    <div class="workshop-meta">
+                        <span><i class="fas fa-calendar"></i> July 18-21, 2022</span>
+                        <span><i class="fas fa-map-marker-alt"></i> IIT Madras</span>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <h3 class="workshop-title">National Symposium on Mathematics and Applications (NSMA)</h3>
+                    <div class="workshop-meta">
+                        <span><i class="fas fa-calendar"></i> Dec 2022, 2023</span>
+                        <span><i class="fas fa-map-marker-alt"></i> IIT Madras</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>Prior to joining Stanford, I completed my PhD at MIT under the supervision of Professor Michael Chen, where I developed new existence theorems for harmonic maps between Riemannian manifolds. My doctoral work received the Richard Courant Prize for outstanding dissertation in applied mathematics.</p>
+    <!-- Awards Section -->
+    <section id="awards" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Awards & Achievements</h2>
+                <p>Academic recognition and accomplishments</p>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <h3 class="award-title"><i class="fas fa-medal"></i> PMRF Scholar</h3>
+                    <p>Selected as a PMRF scholar through cycle 11, 2023</p>
+                    <div class="award-date">2023</div>
+                </div>
+                <div class="award-card">
+                    <h3 class="award-title"><i class="fas fa-certificate"></i> Qualified GATE Mathematics</h3>
+                    <p>Qualified in 2022 and 2023</p>
+                    <div class="award-date">2022, 2023</div>
+                </div>
+                <div class="award-card">
+                    <h3 class="award-title"><i class="fas fa-certificate"></i> Qualified CSIR NET Mathematics</h3>
+                    <p>Qualified in 2022</p>
+                    <div class="award-date">2022</div>
+                </div>
+                <div class="award-card">
+                    <h3 class="award-title"><i class="fas fa-certificate"></i> Qualified IIT JAM</h3>
+                    <p>Qualified in 2020</p>
+                    <div class="award-date">2020</div>
+                </div>
+                <div class="award-card">
+                    <h3 class="award-title"><i class="fas fa-certificate"></i> Qualified PUMDET</h3>
+                    <p>M.Sc entrance examination at Presidency College</p>
+                    <div class="award-date">2019</div>
+                </div>
+                <div class="award-card">
+                    <h3 class="award-title"><i class="fas fa-chess"></i> Chess Tournament Participant</h3>
+                    <p>Selected for Inter Hostel Chess Tournaments, IITM</p>
+                    <div class="award-date">2023, 2024</div>
+                </div>
+                <div class="award-card">
+                    <h3 class="award-title"><i class="fas fa-table-tennis"></i> Badminton Champion</h3>
+                    <p>Intra department (Mathematics) Badminton Singles Men champion, IITM</p>
+                    <div class="award-date">2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>When I'm not immersed in research, I enjoy mentoring students, contributing to open-source mathematical software projects, and exploring the connections between mathematics and art.</p>
-</div>
-<div class="research-interests">
-<h3>Research Interests</h3>
-<div class="interests-list">
-<div class="interest-item">
-<i class="fas fa-shapes"></i>
-<h4>Geometric Analysis</h4>
-</div>
-<div class="interest-item">
-<i class="fas fa-infinity"></i>
-<h4>Partial Differential Equations</h4>
-</div>
-<div class="interest-item">
-<i class="fas fa-atom"></i>
-<h4>Mathematical Physics</h4>
-</div>
-<div class="interest-item">
-<i class="fas fa-project-diagram"></i>
-<h4>Differential Geometry</h4>
-</div>
-<div class="interest-item">
-<i class="fas fa-wave-square"></i>
-<h4>Wave Equations</h4>
-</div>
-<div class="interest-item">
-<i class="fas fa-calculator"></i>
-<h4>Calculus of Variations</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <!-- Teaching Section -->
+    <section id="teaching" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Teaching Experience</h2>
+                <p>Courses taught and teaching assistantship</p>
+            </div>
+            <div class="teaching-grid">
+                <div class="teaching-card">
+                    <div class="course-title">Several Topics (Linear algebra, Real analysis, Functional analysis)</div>
+                    <div class="course-meta">Sunday class for students from Various colleges, IITM</div>
+                    <p>May 2024 - 2025</p>
+                </div>
+                <div class="teaching-card">
+                    <div class="course-title">Calculus and Linear Algebra</div>
+                    <div class="course-meta">SRM, Kattankulathur</div>
+                    <p>Jan - April, 2024</p>
+                </div>
+                <div class="teaching-card">
+                    <div class="course-title">Short review on Uniform Continuity</div>
+                    <div class="course-meta">Bankura Christian College</div>
+                    <p>April, 2024</p>
+                </div>
+                <div class="teaching-card">
+                    <div class="course-title">Functional Analysis</div>
+                    <div class="course-meta">Sunday class for students from Various colleges, IITM</div>
+                    <p>April 2024</p>
+                </div>
+                <div class="teaching-card">
+                    <div class="course-title">Function of several variables for B.Tech I</div>
+                    <div class="course-meta">IIT Madras</div>
+                    <p>July - Dec, 2023</p>
+                </div>
+                <div class="teaching-card">
+                    <div class="course-title">Probability, Statistics and Stochastic Processes for B.Tech. II</div>
+                    <div class="course-meta">IIT Madras</div>
+                    <p>Jan - May, 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Publications Section -->
-<section id="publications" class="section-padding">
-<div class="container">
-<div class="section-header">
-<h2>Publications</h2>
-<p>Selected research papers and preprints</p>
-</div>
-<div class="pub-list">
-<div class="pub-item">
-<div class="pub-title">Stability Analysis of Wave Maps in Lorentzian Manifolds</div>
-<div class="pub-authors">Rossi, E., Chen, M., Williams, R.</div>
-<div class="pub-abstract">We establish new energy estimates for wave maps from globally hyperbolic Lorentzian manifolds to Riemannian manifolds with non-positive sectional curvature, extending previous results to more general spacetime geometries. Our approach combines microlocal analysis with geometric flow techniques to overcome traditional barriers in the field.</div>
-<div class="pub-details">
-<span>Journal of Differential Geometry, Vol. 115, Issue 3, 2024</span>
-<div class="pub-links">
-<a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-<a href="#"><i class="fas fa-external-link-alt"></i> Journal</a>
-<a href="#"><i class="fas fa-archive"></i> arXiv</a>
-</div>
-</div>
-</div>
-<div class="pub-item">
-<div class="pub-title">Geometric Flow Methods for Harmonic Maps with Boundary Conditions</div>
-<div class="pub-authors">Rossi, E.</div>
-<div class="pub-abstract">This paper develops a new geometric flow approach to study the existence and regularity of harmonic maps between Riemannian manifolds with boundary. We introduce a modified flow that preserves Neumann boundary conditions and prove long-time existence and convergence under curvature assumptions.</div>
-<div class="pub-details">
-<span>Communications in Mathematical Physics, Vol. 398, 2023</span>
-<div class="pub-links">
-<a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
-<a href="#"><i class="fas fa-external-link-alt"></i> Journal</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Santanu Soe</h3>
+                    <p>Research Scholar in Mathematics at IIT Madras specializing in convex optimization and splitting algorithms.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+919382328205"><i class="fas fa-phone"></i> +919382328205</a></li>
+                        <li><a href="mailto:ma22d002@smail.iitm.ac.in"><i class="fas fa-envelope"></i> ma22d002@smail.iitm.ac.in</a></li>
+                        <li><a href="mailto:santanusoe1@gmail.com"><i class="fas fa-envelope"></i> santanusoe1@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                        <li><a href="#publications"><i class="fas fa-book"></i> Publications</a></li>
+                        <li><a href="#workshops"><i class="fas fa-calendar-alt"></i> Workshops</a></li>
+                        <li><a href="#awards"><i class="fas fa-trophy"></i> Awards</a></li>
+                        <li><a href="#teaching"><i class="fas fa-chalkboard-teacher"></i> Teaching</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Santanu Soe | Academic Portfolio</p>
+                <p>Designed for academic excellence</p>
+            </div>
+        </div>
+    </footer>
 
-<!-- Education Section -->
-<section id="education" class="section-padding">
-<div class="container">
-<div class="section-header">
-<h2>Education</h2>
-<p>My academic qualifications and research experience</p>
-</div>
-<div class="education-timeline">
-<div class="timeline-item">
-<div class="timeline-content">
-<div class="degree">PhD in Mathematics</div>
-<div class="institution">Massachusetts Institute of Technology</div>
-<span class="date">2018 - 2023</span>
-<p>Thesis: "Analytic and Geometric Aspects of Wave Equations on Curved Backgrounds"<br>
-Advisor: Professor Michael Chen<br>
-Committee: Prof. Sarah Williams, Prof. David Lee, Prof. Rachel Kim<br>
-Received the Richard Courant Prize for outstanding dissertation</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-content">
-<div class="degree">MS in Applied Mathematics</div>
-<div class="institution">ETH Zurich</div>
-<span class="date">2016 - 2018</span>
-<p>Thesis: "Harmonic Map Heat Flow on Riemannian Manifolds"<br>
-GPA: 5.8/6.0<br>
-Focus: Geometric Analysis, PDEs, Differential Geometry</p>
-</div>
-</div>
-</div>
-</div>
-</section>
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
-<!-- Teaching Section -->
-<section id="teaching" class="section-padding">
-<div class="container">
-<div class="section-header">
-<h2>Teaching Experience</h2>
-<p>Courses taught and student mentorship</p>
-</div>
-<div class="teaching-grid">
-<div class="teaching-card">
-<div class="card-header">
-<h3>Stanford University</h3>
-<span class="date">2023 - Present</span>
-</div>
-<div class="card-body">
-<div class="course-item">
-<div class="course-title">MATH 271: Advanced Geometric Analysis</div>
-<span class="course-role">Lead Instructor</span>
-<p>Graduate course covering current research topics in geometric analysis, including Ricci flow, harmonic maps, and minimal surfaces.</p>
-</div>
-<div class="course-item">
-<div class="course-title">MATH 171: Fundamental Concepts of Analysis</div>
-<span class="course-role">Course Coordinator</span>
-<p>Undergraduate real analysis course covering metric spaces, Lebesgue integration, and functional analysis.</p>
-</div>
-</div>
-</div>
-<div class="teaching-card">
-<div class="card-header">
-<h3>Massachusetts Institute of Technology</h3>
-<span class="date">2018 - 2023</span>
-</div>
-<div class="card-body">
-<div class="course-item">
-<div class="course-title">MATH 18.102: Advanced Calculus</div>
-<span class="course-role">Teaching Assistant</span>
-<p>Undergraduate course covering multivariable calculus, vector analysis, and differential forms.</p>
-</div>
-<div class="course-item">
-<div class="course-title">MATH 22.15: Introduction to PDEs</div>
-<span class="course-role">Recitation Instructor</span>
-<p>Undergraduate introduction to partial differential equations with physical applications.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Teaching Materials Section -->
-<section id="materials" class="section-padding">
-<div class="container">
-<div class="section-header">
-<h2>Teaching Materials</h2>
-<p>Lecture slides, notes, and educational resources</p>
-</div>
-<div class="materials-grid">
-<div class="material-card">
-<div class="material-image">
-<img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Geometric Analysis">
-<div class="material-badge">Lecture Slides</div>
-</div>
-<div class="material-content">
-<h3 class="material-title">Geometric Analysis</h3>
-<div class="material-meta">
-<span><i class="fas fa-book"></i> MATH 271</span>
-<span><i class="fas fa-calendar"></i> Spring 2024</span>
-</div>
-<p>Complete lecture slides for graduate course on geometric analysis, covering Ricci flow, harmonic maps, and minimal surfaces with advanced applications.</p>
-<div class="material-links">
-<a href="#" class="material-link"><i class="fas fa-download"></i> Full Slides (PDF)</a>
-<a href="#" class="material-link"><i class="fas fa-file-alt"></i> Lecture Notes</a>
-</div>
-</div>
-</div>
-
-<div class="material-card">
-<div class="material-image">
-<img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Advanced Calculus">
-<div class="material-badge">Lecture Notes</div>
-</div>
-<div class="material-content">
-<h3 class="material-title">Advanced Calculus</h3>
-<div class="material-meta">
-<span><i class="fas fa-book"></i> MATH 171</span>
-<span><i class="fas fa-calendar"></i> Fall 2023</span>
-</div>
-<p>Comprehensive lecture notes covering metric spaces, Lebesgue integration, and functional analysis with problem sets and solutions.</p>
-<div class="material-links">
-<a href="#" class="material-link"><i class="fas fa-download"></i> Full Notes (PDF)</a>
-<a href="#" class="material-link"><i class="fas fa-tasks"></i> Problem Sets</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Research Projects Section -->
-<section id="projects" class="section-padding">
-<div class="container">
-<div class="section-header">
-<h2>Research Projects</h2>
-<p>Current and past research initiatives</p>
-</div>
-<div class="projects-grid">
-<div class="project-card">
-<div class="project-content">
-<h3 class="project-title">Nonlinear Wave Equations on Curved Spacetimes</h3>
-<div class="project-meta">
-<span><i class="fas fa-calendar"></i> 2021 - Present</span>
-<span><i class="fas fa-users"></i> Collaborators: MIT, Princeton</span>
-<span><i class="fas fa-tag"></i> Funded by NSF</span>
-</div>
-<p>Developing novel analytical techniques for studying nonlinear wave equations on curved spacetimes. This project has implications for our understanding of general relativity and quantum field theory, particularly in the context of black hole stability.</p>
-</div>
-</div>
-
-<div class="project-card">
-<div class="project-content">
-<h3 class="project-title">Harmonic Map Heat Flow on Manifolds</h3>
-<div class="project-meta">
-<span><i class="fas fa-calendar"></i> 2018 - 2021</span>
-<span><i class="fas fa-users"></i> PhD Research</span>
-<span><i class="fas fa-tag"></i> Completed</span>
-</div>
-<p>Investigating the existence and regularity of harmonic maps between Riemannian manifolds with boundary using geometric flow methods. This research led to new existence theorems and convergence results under various curvature assumptions.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Awards Section -->
-<section id="awards" class="section-padding">
-<div class="container">
-<div class="section-header">
-<h2>Awards & Honors</h2>
-<p>Academic recognition and achievements</p>
-</div>
-<div class="awards-grid">
-<div class="award-card">
-<h3 class="award-title"><i class="fas fa-medal"></i> Richard Courant Prize</h3>
-<p>Awarded for outstanding dissertation in applied mathematics. Recognized for innovative work on harmonic map heat flow and its applications to geometric analysis.</p>
-<div class="date">MIT, 2023</div>
-</div>
-
-<div class="award-card">
-<h3 class="award-title"><i class="fas fa-trophy"></i> NSF Postdoctoral Fellowship</h3>
-<p>National Science Foundation fellowship supporting early-career scientists doing innovative research. Funding supports research on wave equations in curved spacetimes.</p>
-<div class="date">Stanford University, 2023-2025</div>
-</div>
-
-<div class="award-card">
-<h3 class="award-title"><i class="fas fa-award"></i> AMS Centennial Fellowship</h3>
-<p>Prestigious fellowship awarded by the American Mathematical Society to outstanding mathematicians to support research in pure mathematics.</p>
-<div class="date">American Mathematical Society, 2022</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Conferences Section -->
-<section id="conferences" class="section-padding">
-<div class="container">
-<div class="section-header">
-<h2>Conferences & Talks</h2>
-<p>Recent presentations and invited talks</p>
-</div>
-<div class="conference-list">
-<div class="conference-item">
-<h3 class="conference-title">International Congress of Mathematicians</h3>
-<div class="conference-meta">
-<span><i class="fas fa-map-marker-alt"></i> St. Petersburg, Russia</span>
-<span><i class="fas fa-calendar"></i> July 2025</span>
-<span><i class="fas fa-microphone"></i> Invited Speaker</span>
-</div>
-<p>Plenary talk on "Recent Advances in Geometric Analysis of Wave Equations" presenting new results on stability of wave maps in Lorentzian manifolds.</p>
-</div>
-
-<div class="conference-item">
-<h3 class="conference-title">Joint Mathematics Meetings</h3>
-<div class="conference-meta">
-<span><i class="fas fa-map-marker-alt"></i> Seattle, WA</span>
-<span><i class="fas fa-calendar"></i> January 2024</span>
-<span><i class="fas fa-microphone"></i> Invited Speaker</span>
-</div>
-<p>Presented "Geometric Flow Methods for Harmonic Maps with Boundary Conditions" in the special session on Geometric Analysis.</p>
-</div>
-
-<div class="conference-item">
-<h3 class="conference-title">Mathematical Physics Conference</h3>
-<div class="conference-meta">
-<span><i class="fas fa-map-marker-alt"></i> Vienna, Austria</span>
-<span><i class="fas fa-calendar"></i> September 2023</span>
-<span><i class="fas fa-microphone"></i> Keynote Speaker</span>
-</div>
-<p>Keynote address on "Analytical Approaches to Nonlinear Wave Equations in General Relativity" discussing connections between geometric analysis and theoretical physics.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="section-padding">
-<div class="container">
-<div class="section-header">
-<h2>Contact Me</h2>
-<p>Get in touch for collaboration or inquiries</p>
-</div>
-<div class="contact-content">
-<div class="contact-form">
-<form id="contact-form">
-<div class="form-group">
-<label for="name">Full Name</label>
-<input type="text" id="name" placeholder="Enter your name" required>
-</div>
-<div class="form-group">
-<label for="email">Email Address</label>
-<input type="email" id="email" placeholder="Enter your email" required>
-</div>
-<div class="form-group">
-<label for="subject">Subject</label>
-<input type="text" id="subject" placeholder="What is this regarding?" required>
-</div>
-<div class="form-group">
-<label for="message">Message</label>
-<textarea id="message" placeholder="Your message here..." required></textarea>
-</div>
-<button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
-</form>
-</div>
-<div class="contact-info-card">
-<div class="contact-details">
-<div class="contact-detail">
-<i class="fas fa-envelope"></i>
-<div>
-<h4>Email</h4>
-<p>elena.rossi@stanford.edu</p>
-</div>
-</div>
-<div class="contact-detail">
-<i class="fas fa-map-marker-alt"></i>
-<div>
-<h4>Office</h4>
-<p>Department of Mathematics<br>
-450 Jane Stanford Way<br>
-Building 380, Room 381-C<br>
-Stanford, CA 94305</p>
-</div>
-</div>
-<div class="contact-detail">
-<i class="fas fa-clock"></i>
-<div>
-<h4>Office Hours</h4>
-<p>Tuesdays & Thursdays: 2:00 PM - 4:00 PM<br>
-Or by appointment</p>
-</div>
-</div>
-</div>
-<div class="social-links">
-<a href="#" class="social-link"><i class="fab fa-google-scholar"></i></a>
-<a href="#" class="social-link"><i class="fab fa-researchgate"></i></a>
-<a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-<a href="#" class="social-link"><i class="fab fa-github"></i></a>
-<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-<a href="#" class="social-link"><i class="fab fa-orcid"></i></a>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer>
-<div class="container">
-<div class="footer-content">
-<div class="footer-section">
-<h3>Dr. Elena Rossi</h3>
-<p>Research Fellow in Mathematics at Stanford University specializing in geometric analysis and partial differential equations with applications to mathematical physics.</p>
-</div>
-<div class="footer-section">
-<h3>Quick Links</h3>
-<ul class="footer-links">
-<li><a href="#about"><i class="fas fa-chevron-right"></i> About Me</a></li>
-<li><a href="#publications"><i class="fas fa-chevron-right"></i> Publications</a></li>
-<li><a href="#education"><i class="fas fa-chevron-right"></i> Education</a></li>
-<li><a href="#teaching"><i class="fas fa-chevron-right"></i> Teaching</a></li>
-<li><a href="#materials"><i class="fas fa-chevron-right"></i> Materials</a></li>
-</ul>
-</div>
-<div class="footer-section">
-<h3>Resources</h3>
-<ul class="footer-links">
-<li><a href="#"><i class="fas fa-chevron-right"></i> Research Group</a></li>
-<li><a href="#"><i class="fas fa-chevron-right"></i> Publications</a></li>
-<li><a href="#"><i class="fas fa-chevron-right"></i> Lecture Notes</a></li>
-<li><a href="#"><i class="fas fa-chevron-right"></i> Computational Tools</a></li>
-<li><a href="#"><i class="fas fa-chevron-right"></i> Math Blog</a></li>
-</ul>
-</div>
-</div>
-<div class="copyright">
-<p>&copy; 2023 Dr. Elena Rossi | Mathematics Research Fellow</p>
-<p>Designed with elegance for academic excellence</p>
-</div>
-</div>
-</footer>
-
-<div class="back-to-top" id="back-to-top">
-  <i class="fas fa-arrow-up"></i>
-</div>
-
-<script>
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop - 80,
-        behavior: 'smooth'
-      });
-      
-      // Close mobile menu if open
-      if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('active');
-      }
-    }
-  });
-});
-
-// Form submission handler
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  // Get form values
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  
-  // Show confirmation
-  alert(`Thank you for your message, ${name}! I'll get back to you at ${email} soon.`);
-  this.reset();
-});
-
-// Mobile menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.getElementById('nav-links');
-
-menuToggle.addEventListener('click', function() {
-  navLinks.classList.toggle('active');
-  this.classList.toggle('active');
-});
-
-// Back to top button
-const backToTopButton = document.getElementById('back-to-top');
-
-window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 300) {
-    backToTopButton.classList.add('show');
-  } else {
-    backToTopButton.classList.remove('show');
-  }
-});
-
-backToTopButton.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-});
-
-// Floating animation for profile image
-const profileImage = document.querySelector('.profile-image');
-
-profileImage.addEventListener('mouseenter', () => {
-  profileImage.style.animationPlayState = 'paused';
-});
-
-profileImage.addEventListener('mouseleave', () => {
-  profileImage.style.animationPlayState = 'running';
-});
-
-// Add section indicators on scroll
-const sections = document.querySelectorAll('section');
-const navLinksItems = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    
-    if (pageYOffset >= (sectionTop - 200)) {
-      current = section.getAttribute('id');
-    }
-  });
-  
-  navLinksItems.forEach(item => {
-    item.classList.remove('active');
-    if (item.getAttribute('href').substring(1) === current) {
-      item.classList.add('active');
-    }
-  });
-});
-</script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add section indicators on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
