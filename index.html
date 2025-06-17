@@ -8,19 +8,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary: #2c3e50;
-  --secondary: #3498db;
-  --accent: #e74c3c;
+  --primary: #1a365d;
+  --secondary: #2b6cb0;
+  --accent: #c53030;
   --light: #f8f9fa;
-  --dark: #212529;
-  --gray: #6c757d;
-  --light-gray: #e9ecef;
-  --gold: #f1c40f;
+  --dark: #2d3748;
+  --gray: #718096;
+  --light-gray: #e2e8f0;
+  --gold: #d69e2e;
+  --teal: #319795;
   --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.1);
-  --border-radius: 10px;
+  --border-radius: 12px;
+  --header-gradient: linear-gradient(135deg, var(--primary) 0%, #153e75 100%);
 }
 
 * {
@@ -40,9 +42,24 @@ body {
   background-color: var(--light);
   overflow-x: hidden;
   background-image:
-    radial-gradient(circle at 5% 15%, rgba(231, 76, 60, 0.02) 0%, transparent 15%),
-    radial-gradient(circle at 95% 85%, rgba(52, 152, 219, 0.02) 0%, transparent 15%);
+    radial-gradient(circle at 5% 15%, rgba(49, 151, 149, 0.03) 0%, transparent 15%),
+    radial-gradient(circle at 95% 85%, rgba(43, 108, 176, 0.03) 0%, transparent 15%);
   background-attachment: fixed;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(214, 158, 46, 0.02) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(197, 48, 48, 0.02) 0%, transparent 20%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 h1, h2, h3, h4, h5 {
@@ -97,7 +114,7 @@ h1, h2, h3, h4, h5 {
 
 /* Header Styles */
 header {
-  background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
+  background: var(--header-gradient);
   color: white;
   padding: 30px 0;
   position: relative;
@@ -105,6 +122,7 @@ header {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
 }
 
 header::before {
@@ -115,8 +133,8 @@ header::before {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(231, 76, 60, 0.1) 0%, transparent 20%);
+    radial-gradient(circle at 10% 20%, rgba(43, 108, 176, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(197, 48, 48, 0.1) 0%, transparent 20%);
   pointer-events: none;
 }
 
@@ -130,13 +148,17 @@ header::before {
   padding: 40px 0;
 }
 
+.profile-container {
+  position: relative;
+  margin-bottom: 40px;
+}
+
 .profile-image {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   border: 5px solid rgba(255, 255, 255, 0.2);
-  margin-bottom: 30px;
-  background: linear-gradient(45deg, #3498db, #2c3e50);
+  background: linear-gradient(45deg, var(--secondary), var(--primary));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,6 +168,7 @@ header::before {
   transition: var(--transition);
   animation: float 6s ease-in-out infinite;
   transform-origin: center;
+  z-index: 2;
 }
 
 .profile-image img {
@@ -153,6 +176,19 @@ header::before {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+}
+
+.profile-image::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  top: -15px;
+  left: -15px;
+  z-index: -1;
+  animation: pulse 3s infinite;
 }
 
 .header-text h1 {
@@ -235,6 +271,7 @@ header::before {
   color: var(--gold);
   margin-bottom: 15px;
   font-size: 1.4rem;
+  text-align: center;
 }
 
 .research-tags {
@@ -245,16 +282,22 @@ header::before {
 }
 
 .research-tag {
-  background: rgba(52, 152, 219, 0.2);
+  background: rgba(43, 108, 176, 0.2);
   color: white;
   padding: 8px 20px;
   border-radius: 30px;
   font-weight: 500;
   transition: var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+.research-tag i {
+  margin-right: 8px;
 }
 
 .research-tag:hover {
-  background: rgba(52, 152, 219, 0.4);
+  background: rgba(43, 108, 176, 0.4);
   transform: scale(1.05);
 }
 
@@ -352,6 +395,39 @@ nav {
   width: 100%;
 }
 
+/* Section Cards */
+.section-card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: 40px;
+  transition: var(--transition);
+  border-top: 4px solid var(--secondary);
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.section-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--secondary);
+  transition: width 0.5s ease;
+}
+
+.section-card:hover::before {
+  width: 0;
+}
+
 /* Education Section */
 .education-timeline {
   position: relative;
@@ -441,6 +517,13 @@ nav {
   color: var(--primary);
   margin-bottom: 10px;
   font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.institution i {
+  margin-right: 10px;
+  color: var(--secondary);
 }
 
 .degree {
@@ -459,7 +542,7 @@ nav {
 }
 
 .grade {
-  background: rgba(52, 152, 219, 0.1);
+  background: rgba(43, 108, 176, 0.1);
   padding: 5px 15px;
   border-radius: 30px;
   display: inline-block;
@@ -469,7 +552,7 @@ nav {
 }
 
 .grade:hover {
-  background: rgba(52, 152, 219, 0.2);
+  background: rgba(43, 108, 176, 0.2);
   transform: translateY(-2px);
 }
 
@@ -486,12 +569,25 @@ nav {
   padding: 30px;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
-  border-left: 4px solid var(--secondary);
+  border-left: 4px solid var(--teal);
   height: 100%;
   border: 1px solid var(--light-gray);
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
+  position: relative;
+}
+
+.workshop-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(49, 151, 149, 0.05) 0%, transparent 100%);
+  z-index: -1;
+  border-radius: var(--border-radius);
 }
 
 .workshop-card.visible {
@@ -510,6 +606,13 @@ nav {
   margin-bottom: 15px;
   color: var(--primary);
   line-height: 1.4;
+  display: flex;
+  align-items: center;
+}
+
+.workshop-title i {
+  margin-right: 12px;
+  color: var(--teal);
 }
 
 .workshop-meta {
@@ -528,7 +631,7 @@ nav {
 
 .workshop-meta i {
   margin-right: 8px;
-  color: var(--secondary);
+  color: var(--teal);
 }
 
 /* Awards Section */
@@ -550,6 +653,19 @@ nav {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
+  position: relative;
+}
+
+.award-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(214, 158, 46, 0.05) 0%, transparent 100%);
+  z-index: -1;
+  border-radius: var(--border-radius);
 }
 
 .award-card.visible {
@@ -603,6 +719,19 @@ nav {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
+  position: relative;
+}
+
+.teaching-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(197, 48, 48, 0.05) 0%, transparent 100%);
+  z-index: -1;
+  border-radius: var(--border-radius);
 }
 
 .teaching-card.visible {
@@ -621,6 +750,13 @@ nav {
   color: var(--primary);
   font-size: 1.2rem;
   line-height: 1.4;
+  display: flex;
+  align-items: center;
+}
+
+.course-title i {
+  margin-right: 10px;
+  color: var(--accent);
 }
 
 .course-meta {
@@ -653,6 +789,18 @@ nav {
   transition: all 0.6s ease;
 }
 
+.pub-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(43, 108, 176, 0.05) 0%, transparent 100%);
+  z-index: -1;
+  border-radius: var(--border-radius);
+}
+
 .pub-item.visible {
   opacity: 1;
   transform: translateY(0);
@@ -680,7 +828,7 @@ nav {
 
 .pub-status {
   display: inline-block;
-  background: rgba(231, 76, 60, 0.1);
+  background: rgba(197, 48, 48, 0.1);
   color: var(--accent);
   padding: 5px 15px;
   border-radius: 30px;
@@ -690,8 +838,32 @@ nav {
 }
 
 .pub-status:hover {
-  background: rgba(231, 76, 60, 0.2);
+  background: rgba(197, 48, 48, 0.2);
   transform: translateY(-2px);
+}
+
+.pub-link {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(43, 108, 176, 0.1);
+  color: var(--secondary);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  margin-top: 15px;
+}
+
+.pub-link:hover {
+  background: var(--secondary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.pub-link i {
+  margin-right: 8px;
 }
 
 /* Teaching Materials Section */
@@ -713,6 +885,19 @@ nav {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
+  position: relative;
+}
+
+.material-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(214, 158, 46, 0.05) 0%, transparent 100%);
+  z-index: -1;
+  border-radius: var(--border-radius);
 }
 
 .material-card.visible {
@@ -757,7 +942,7 @@ nav {
 .material-links a {
   display: inline-flex;
   align-items: center;
-  background: rgba(52, 152, 219, 0.1);
+  background: rgba(43, 108, 176, 0.1);
   color: var(--secondary);
   padding: 8px 20px;
   border-radius: 30px;
@@ -788,6 +973,22 @@ nav {
   max-width: 900px;
   border: 1px solid var(--light-gray);
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(43, 108, 176, 0.03) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(197, 48, 48, 0.03) 0%, transparent 20%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .about-section:hover {
@@ -805,6 +1006,8 @@ nav {
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--dark);
+  position: relative;
+  z-index: 2;
 }
 
 .about-highlights {
@@ -815,11 +1018,13 @@ nav {
 }
 
 .about-highlight {
-  background: rgba(52, 152, 219, 0.05);
+  background: rgba(43, 108, 176, 0.05);
   padding: 20px;
   border-radius: var(--border-radius);
   border-left: 4px solid var(--secondary);
   transition: var(--transition);
+  position: relative;
+  z-index: 2;
 }
 
 .about-highlight:hover {
@@ -840,12 +1045,13 @@ nav {
 
 /* Footer */
 footer {
-  background: var(--dark);
+  background: var(--primary);
   color: rgba(255, 255, 255, 0.7);
   padding: 50px 0 20px;
   text-align: center;
   font-size: 1rem;
   position: relative;
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
 }
 
 .footer-content {
@@ -926,19 +1132,23 @@ footer {
   }
 }
 
-.floating {
-  animation: float 6s ease-in-out infinite;
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.floating {
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Back to top button */
@@ -969,7 +1179,7 @@ footer {
 }
 
 .back-to-top:hover {
-  background: #c0392b;
+  background: #9b2c2c;
   transform: translateY(-3px) scale(1.1);
 }
 
@@ -1083,9 +1293,10 @@ footer {
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="profile-image floating">
-                    <!-- Replace with your actual profile picture -->
-                    <img src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=1xQZCtQAAAAJ&citpid=8" alt="Santanu Soe">
+                <div class="profile-container">
+                    <div class="profile-image floating">
+                        <img src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=1xQZCtQAAAAJ&citpid=8" alt="Santanu Soe">
+                    </div>
                 </div>
                 <div class="header-text">
                     <h1>SANTANU SOE</h1>
@@ -1109,10 +1320,10 @@ footer {
                     <div class="research-area">
                         <h3>Research Area</h3>
                         <div class="research-tags">
-                            <div class="research-tag">Convex optimization</div>
-                            <div class="research-tag">Splitting algorithms</div>
-                            <div class="research-tag">Monotone Inclusion problems</div>
-                            <div class="research-tag">Nonsmooth Analysis</div>
+                            <div class="research-tag"><i class="fas fa-chart-line"></i> Convex optimization</div>
+                            <div class="research-tag"><i class="fas fa-cogs"></i> Splitting algorithms</div>
+                            <div class="research-tag"><i class="fas fa-project-diagram"></i> Monotone Inclusion</div>
+                            <div class="research-tag"><i class="fas fa-calculator"></i> Nonsmooth Analysis</div>
                         </div>
                     </div>
                 </div>
@@ -1179,7 +1390,7 @@ footer {
             <div class="education-timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="institution">Indian Institute of Technology Madras, Chennai</div>
+                        <div class="institution"><i class="fas fa-university"></i> Indian Institute of Technology Madras, Chennai</div>
                         <div class="degree">Research Scholar</div>
                         <span class="date">2022 - Onwards</span>
                         <p>Coursework CGPA: <span class="grade">8.69/10</span></p>
@@ -1187,7 +1398,7 @@ footer {
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="institution">Indian Institute of Technology Madras, Chennai</div>
+                        <div class="institution"><i class="fas fa-university"></i> Indian Institute of Technology Madras, Chennai</div>
                         <div class="degree">M.Sc in Mathematics</div>
                         <span class="date">2020 - 2022</span>
                         <p>CGPA: <span class="grade">7.87/10</span></p>
@@ -1195,7 +1406,7 @@ footer {
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="institution">Bankura Christian College, West Bengal</div>
+                        <div class="institution"><i class="fas fa-university"></i> Bankura Christian College, West Bengal</div>
                         <div class="degree">B.Sc in Mathematics</div>
                         <span class="date">2017 - 2020</span>
                         <p>CGPA: <span class="grade">9.18/10</span></p>
@@ -1203,7 +1414,7 @@ footer {
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="institution">Ichapur N.C High School, West Bengal</div>
+                        <div class="institution"><i class="fas fa-school"></i> Ichapur N.C High School, West Bengal</div>
                         <div class="degree">12th Standard</div>
                         <span class="date">2015 - 2017</span>
                         <p>Percentage: <span class="grade">84%</span></p>
@@ -1224,22 +1435,18 @@ footer {
                 <div class="pub-item">
                     <div class="pub-title">The Golden Ratio Primal-Dual Algorithm with Two New Stepsize Rules for Convex-Concave Saddle Point Problems</div>
                     <div class="pub-authors">Soe, Santanu, Matthew K. Tam, and V. Vetrivel</div>
-                    <p>arXiv preprint arXiv:2502.17918 (2025) 
-                        <a href="https://arxiv.org/abs/2502.17918" target="_blank" style="color: var(--secondary); text-decoration: none; margin-left: 15px;">
-                            <i class="fas fa-external-link-alt"></i> View on arXiv
-                        </a>
-                    </p>
-                    <!--<span class="pub-status">Under review</span>-->
+                    <p>arXiv preprint arXiv:2502.17918 (2025)</p>
+                    <a href="https://arxiv.org/abs/2502.17918" target="_blank" class="pub-link">
+                        <i class="fas fa-external-link-alt"></i> View on arXiv
+                    </a>
                 </div>
                 <div class="pub-item">
                     <div class="pub-title">Weak Convergence of Projection Algorithm with Momentum Terms and New Step Size Rule for Quasimonotone Variational Inequalities</div>
                     <div class="pub-authors">Soe, Santanu, G. Kumar and V. Vetrivel</div>
-                    <p>arXiv preprint arXiv:2505.06170 (2025) 
-                        <a href="https://arxiv.org/abs/2505.06170" target="_blank" style="color: var(--secondary); text-decoration: none; margin-left: 15px;">
-                            <i class="fas fa-external-link-alt"></i> View on arXiv
-                        </a>
-                    </p>
-                    <!--<span class="pub-status">Under review</span>-->
+                    <p>arXiv preprint arXiv:2505.06170 (2025)</p>
+                    <a href="https://arxiv.org/abs/2505.06170" target="_blank" class="pub-link">
+                        <i class="fas fa-external-link-alt"></i> View on arXiv
+                    </a>
                 </div>
                 <div class="pub-item">
                     <div class="pub-title">On Some Forward-Backward Method to solve Monotone Inclusion Problems</div>
@@ -1259,42 +1466,42 @@ footer {
             </div>
             <div class="workshop-grid">
                 <div class="workshop-card">
-                    <h3 class="workshop-title">Mathematics in Industry Study Group (MISG 2025)</h3>
+                    <h3 class="workshop-title"><i class="fas fa-industry"></i> Mathematics in Industry Study Group (MISG 2025)</h3>
                     <div class="workshop-meta">
                         <span><i class="fas fa-calendar"></i> Feb 10 - 14, 2025</span>
                         <span><i class="fas fa-map-marker-alt"></i> Monash University, Australia</span>
                     </div>
                 </div>
                 <div class="workshop-card">
-                    <h3 class="workshop-title">Workshop on Linear Algebra through Data Science</h3>
+                    <h3 class="workshop-title"><i class="fas fa-chart-line"></i> Workshop on Linear Algebra through Data Science</h3>
                     <div class="workshop-meta">
                         <span><i class="fas fa-calendar"></i> May 20 - 26, 2024</span>
                         <span><i class="fas fa-map-marker-alt"></i> IMSC, Chennai</span>
                     </div>
                 </div>
                 <div class="workshop-card">
-                    <h3 class="workshop-title">Mini-Course on Optimization Theory and Its Applications</h3>
+                    <h3 class="workshop-title"><i class="fas fa-cogs"></i> Mini-Course on Optimization Theory and Its Applications</h3>
                     <div class="workshop-meta">
                         <span><i class="fas fa-calendar"></i> March 18 - 21, 2024</span>
                         <span><i class="fas fa-map-marker-alt"></i> VIASM, Vietnam (Online)</span>
                     </div>
                 </div>
                 <div class="workshop-card">
-                    <h3 class="workshop-title">Data Science: Probabilistic and Optimization Methods</h3>
+                    <h3 class="workshop-title"><i class="fas fa-database"></i> Data Science: Probabilistic and Optimization Methods</h3>
                     <div class="workshop-meta">
                         <span><i class="fas fa-calendar"></i> July 3-7, 2023</span>
                         <span><i class="fas fa-map-marker-alt"></i> ICTS Bangalore</span>
                     </div>
                 </div>
                 <div class="workshop-card">
-                    <h3 class="workshop-title">Analysis, Inverse Problems and Applications</h3>
+                    <h3 class="workshop-title"><i class="fas fa-microscope"></i> Analysis, Inverse Problems and Applications</h3>
                     <div class="workshop-meta">
                         <span><i class="fas fa-calendar"></i> July 18-21, 2022</span>
                         <span><i class="fas fa-map-marker-alt"></i> IIT Madras</span>
                     </div>
                 </div>
                 <div class="workshop-card">
-                    <h3 class="workshop-title">National Symposium on Mathematics and Applications (NSMA)</h3>
+                    <h3 class="workshop-title"><i class="fas fa-users"></i> National Symposium on Mathematics and Applications (NSMA)</h3>
                     <div class="workshop-meta">
                         <span><i class="fas fa-calendar"></i> Dec 2022, 2023</span>
                         <span><i class="fas fa-map-marker-alt"></i> IIT Madras</span>
@@ -1360,37 +1567,37 @@ footer {
             </div>
             <div class="teaching-grid">
                 <div class="teaching-card">
-                    <div class="course-title">Several Topics (Linear algebra, Real analysis, Functional analysis)</div>
+                    <div class="course-title"><i class="fas fa-book"></i> Several Topics (Linear algebra, Real analysis, Functional analysis)</div>
                     <div class="course-meta">Sunday class for students from Various colleges, IITM</div>
                     <p>May 2024 - 2025</p>
                 </div>
                 <div class="teaching-card">
-                    <div class="course-title">Calculus and Linear Algebra</div>
+                    <div class="course-title"><i class="fas fa-calculator"></i> Calculus and Linear Algebra</div>
                     <div class="course-meta">SRM, Kattankulathur</div>
                     <p>Jan - April, 2024</p>
                 </div>
                 <div class="teaching-card">
-                    <div class="course-title">Short review on Uniform Continuity</div>
+                    <div class="course-title"><i class="fas fa-chart-line"></i> Short review on Uniform Continuity</div>
                     <div class="course-meta">Bankura Christian College</div>
                     <p>April, 2024</p>
                 </div>
                 <div class="teaching-card">
-                    <div class="course-title">Functional Analysis</div>
+                    <div class="course-title"><i class="fas fa-project-diagram"></i> Functional Analysis</div>
                     <div class="course-meta">Sunday class for students from Various colleges, IITM</div>
                     <p>April 2024</p>
                 </div>
                 <div class="teaching-card">
-                    <div class="course-title">Functional Analysis, Complex Analysis, Basic Optimization Problems</div>
+                    <div class="course-title"><i class="fas fa-infinity"></i> Functional Analysis, Complex Analysis, Basic Optimization Problems</div>
                     <div class="course-meta">Sunday class for students from Various colleges, IITM</div>
                     <p>May - Dec 2024</p>
                 </div>
                 <div class="teaching-card">
-                    <div class="course-title">Function of several variables for B.Tech I</div>
+                    <div class="course-title"><i class="fas fa-calculator"></i> Function of several variables for B.Tech I</div>
                     <div class="course-meta">IIT Madras</div>
                     <p>July - Dec, 2023</p>
                 </div>
                 <div class="teaching-card">
-                    <div class="course-title">Probability, Statistics and Stochastic Processes for B.Tech. II</div>
+                    <div class="course-title"><i class="fas fa-chart-bar"></i> Probability, Statistics and Stochastic Processes for B.Tech. II</div>
                     <div class="course-meta">IIT Madras</div>
                     <p>Jan - May, 2024</p>
                 </div>
