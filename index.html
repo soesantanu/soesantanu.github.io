@@ -146,18 +146,137 @@ header::before {
   padding: 0 20px;
 }
 
-@media (max-width: 992px) {
-  .header-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  
-  .profile-container {
-    order: -1;
-    margin: 0 auto;
-  }
+/* Navigation Cards */
+.nav-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 60px 0;
 }
 
+.nav-card {
+  background: rgba(23, 42, 69, 0.7);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  text-align: center;
+  transition: var(--transition);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary);
+}
+
+.nav-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(100, 255, 218, 0.05), transparent 70%);
+  z-index: -1;
+}
+
+.nav-card i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--secondary);
+  transition: var(--transition);
+}
+
+.nav-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--light);
+}
+
+.nav-card p {
+  color: var(--gray);
+  font-size: 1rem;
+}
+
+.nav-card:hover i {
+  transform: scale(1.2);
+  color: var(--teal);
+}
+
+/* Side Navigation */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  background: rgba(23, 42, 69, 0.8);
+  border-radius: 30px;
+  padding: 15px 10px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  box-shadow: var(--shadow-md);
+}
+
+.side-nav a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--secondary);
+  font-size: 1.2rem;
+  transition: var(--transition);
+  text-decoration: none;
+  position: relative;
+}
+
+.side-nav a:hover {
+  background: var(--secondary);
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.side-nav a.active {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.side-nav a span {
+  position: absolute;
+  right: 50px;
+  white-space: nowrap;
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 5px 15px;
+  border-radius: 30px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.side-nav a:hover span {
+  opacity: 1;
+  right: 60px;
+}
+
+/* Profile Container */
 .profile-container {
   position: relative;
   display: flex;
@@ -1298,6 +1417,14 @@ footer {
   .section-header h2 {
     font-size: 2.5rem;
   }
+  
+  .nav-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .side-nav {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1330,6 +1457,27 @@ footer {
   .awards-grid,
   .teaching-grid,
   .materials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .header-text {
+    text-align: center;
+  }
+  
+  .contact-info {
+    justify-content: center;
+  }
+  
+  .research-tags {
+    justify-content: center;
+  }
+  
+  .nav-cards {
     grid-template-columns: 1fr;
   }
 }
@@ -1385,6 +1533,11 @@ footer {
   .social-links {
     justify-content: center;
   }
+  
+  .nav-card {
+    padding: 20px;
+    min-height: 180px;
+  }
 }
 </style>
 </head>
@@ -1405,7 +1558,6 @@ footer {
                     <div class="academic-info">
                         <h3><i class="fas fa-graduation-cap"></i> Academic Journey</h3>
                         <p>PMRF & Joint PhD Scholar at IIT Madras & University of Melbourne under the supervision of Prof. V Vetrivel and Prof. Matthew K. Tam</p>
-<!--                         <p>Specializing in Optimization and Variational Analysis</p> -->
                     </div>
                     
                     <div class="contact-info">
@@ -1435,12 +1587,57 @@ footer {
                 </div>
             </div>
             
+            <!-- Navigation Cards -->
+            <div class="nav-cards">
+                <div class="nav-card" data-target="about">
+                    <i class="fas fa-user"></i>
+                    <h3>About Me</h3>
+                    <p>Learn about my research and background</p>
+                </div>
+                <div class="nav-card" data-target="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education</h3>
+                    <p>Academic qualifications and journey</p>
+                </div>
+                <div class="nav-card" data-target="publications">
+                    <i class="fas fa-book"></i>
+                    <h3>Publications</h3>
+                    <p>Research papers and preprints</p>
+                </div>
+                <div class="nav-card" data-target="workshops">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Workshops</h3>
+                    <p>Academic conferences and seminars</p>
+                </div>
+                <div class="nav-card" data-target="awards">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Awards</h3>
+                    <p>Academic recognition</p>
+                </div>
+                <div class="nav-card" data-target="teaching">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Teaching</h3>
+                    <p>Courses and materials</p>
+                </div>
+            </div>
+            
             <a href="#about" class="scroll-down">
                 <i class="fas fa-chevron-down"></i>
-                <span>Explore My Research</span>
+                <span>Explore More</span>
             </a>
         </div>
     </header>
+
+    <!-- Side Navigation -->
+    <div class="side-nav">
+        <a href="#about" data-tooltip="About"><i class="fas fa-user"></i><span>About</span></a>
+        <a href="#education" data-tooltip="Education"><i class="fas fa-graduation-cap"></i><span>Education</span></a>
+        <a href="#publications" data-tooltip="Publications"><i class="fas fa-book"></i><span>Publications</span></a>
+        <a href="#workshops" data-tooltip="Workshops"><i class="fas fa-calendar-alt"></i><span>Workshops</span></a>
+        <a href="#awards" data-tooltip="Awards"><i class="fas fa-trophy"></i><span>Awards</span></a>
+        <a href="#teaching" data-tooltip="Teaching"><i class="fas fa-chalkboard-teacher"></i><span>Teaching</span></a>
+        <a href="#materials" data-tooltip="Materials"><i class="fas fa-book-open"></i><span>Materials</span></a>
+    </div>
 
     <!-- Navigation -->
     <nav>
@@ -1824,6 +2021,20 @@ footer {
             });
         });
         
+        // Navigation card clicks
+        document.querySelectorAll('.nav-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                const section = document.getElementById(target);
+                if (section) {
+                    window.scrollTo({
+                        top: section.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
         // Back to top button
         const backToTopButton = document.getElementById('back-to-top');
         
@@ -1844,7 +2055,7 @@ footer {
         
         // Add section indicators on scroll
         const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
+        const navLinks = document.querySelectorAll('.nav-links a, .side-nav a');
         
         window.addEventListener('scroll', () => {
             let current = '';
@@ -1860,7 +2071,8 @@ footer {
             
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
+                const href = link.getAttribute('href').substring(1);
+                if (href === current) {
                     link.classList.add('active');
                 }
             });
@@ -1921,6 +2133,9 @@ footer {
             const profileImage = document.querySelector('.profile-image');
             profileImage.style.transform = `translateY(${scrollPosition * 0.1}px) rotate(${scrollPosition * 0.02}deg)`;
         });
+        
+        // Initialize side nav active state
+        document.querySelector('.side-nav a[href="#about"]').classList.add('active');
     </script>
 </body>
 </html>
